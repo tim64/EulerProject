@@ -1,4 +1,5 @@
 # coding=utf-8
+import time
 """
 Задача 4. Наибольшее произведение-палиндром
 
@@ -7,19 +8,36 @@
 
 Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.
 """
+def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        print('%r  %2.2f ms' % (method.__name__, (te - ts) * 1000))
+        return result
+    return timed
 
+def is_poly(num):
+    start = str(num)
+    end = len(start) - 1
+    for i in range(0, end):
+        if start[i] != start[end - i]:
+            return False
 
+    return True
+
+@timeit
 def poly_detected():
-    res = 0
-    for i in range(100, 1000):
-        for j in range(100, 100):
-            temp_res = i * j
-            if len(str(temp_res)) < 6:
-                continue
-            else:
-                if str(temp_res)[0:3] == str(temp_res)[3:6][::-1] and temp_res > res:
-                    res = temp_res
-    return res
+    max = 0
+    for i in range(1000, 100, -1):
+        for j in range(1000, 100, -1):
+            tmp = i * j
+            if tmp > max and is_poly(tmp):
+                max = tmp
+    return max
 
 
-print(poly_detected())
+#print(poly_detected())
+# 205.15 ms
+
+
