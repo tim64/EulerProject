@@ -1,5 +1,5 @@
 # coding=utf-8
-import timeit
+from TimeIt import timeit
 """
 Задача 4. Наибольшее произведение-палиндром
 
@@ -17,6 +17,7 @@ def is_poly(num):
 
     return True
 
+@timeit
 def poly_detected():
     max = 0
     for i in range(1000, 100, -1):
@@ -28,6 +29,6 @@ def poly_detected():
 
 
 print(poly_detected())
-# 205.15 ms
+# 193.76 ms
 
 

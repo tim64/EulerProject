@@ -1,3 +1,5 @@
+# coding=utf-8
+from TimeIt import timeit
 '''
 Задача 1. Числа, кратные 3 или 5
 
@@ -5,8 +7,7 @@
 
 Найдите сумму всех чисел меньше 1000, кратных 3 или 5.
 '''
-
-
+@timeit
 def sum1000():
     sum = 0
     for number in range(1000):
@@ -16,3 +17,4 @@ def sum1000():
 
 
 print(sum1000())
+#0.43 ms

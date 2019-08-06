@@ -1,3 +1,5 @@
+# coding=utf-8
+from TimeIt import timeit
 '''
 Задача 2. Четные числа Фибоначчи
 
@@ -7,7 +9,7 @@
 
 Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре миллиона.
 '''
-
+@timeit
 def sumFib():
     first = 0
     second = 1
@@ -22,4 +24,5 @@ def sumFib():
 
 
 print(sumFib())
+#0.03 ms
 
